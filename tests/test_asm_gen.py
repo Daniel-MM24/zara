@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from zara_asm_gen import ZaraASMGenerator
 
 def test_asm_generation():
