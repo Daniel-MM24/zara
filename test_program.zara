@@ -1,10 +1,27 @@
 integer x = 10 + 5;
 integer y = 20;
+float f = 3.14;
+string s = "hello";
+array arr;
+stack st;
+
+x = x * 2;
+y = y - 1;
 
 if (x) {
     x = x - 1;
+} else {
+    x = x + 1;
 }
+
 
 do {
     y = y - 1;
 } while (y);
+
+
+{
+    integer z = 100;
+    z = z + x;
+}
+

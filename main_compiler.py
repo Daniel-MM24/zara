@@ -68,22 +68,8 @@ def run_full_compilation(zara_code):
 # --- TEST CASES ---
 
 if __name__ == "__main__":
-    # Test 1: A Valid Zara Program
-    valid_program = """
-    integer x = 10 + 5;
-    if (x) {
-        x = x - 1;
-    }
-    """
-    
-    # Test 2: A Program with Syntax Errors (to test recovery)
-    broken_program = """
-    integer x = 10 (missing semicolon)
-    integer y = 20;
-    """
-
-    print("RUNNING VALID PROGRAM TEST...")
-    run_full_compilation(valid_program)
-    
-    print("\n\nRUNNING BROKEN PROGRAM TEST...")
-    run_full_compilation(broken_program)
+    # Read Zara code from test_program.zara
+    zara_file = "test_program.zara"
+    zara_code = read_zara_file(zara_file)
+    print(f"RUNNING PROGRAM FROM {zara_file}...")
+    run_full_compilation(zara_code)
