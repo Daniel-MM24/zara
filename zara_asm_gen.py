@@ -38,7 +38,7 @@ class ZaraASMGenerator:
             elif "if_not" in line:
                 parts = line.split()
                 self.asm.append(f"CMP {self.get_reg(parts[1])}, 0")
-                self.asm.append(f"JZ {parts[4]}") # Jump if Zero
+                self.asm.append(f"JZ {parts[3]}") # Jump if Zero
 
             # Object Creation: x = ALLOC Drone
             elif "ALLOC" in line:

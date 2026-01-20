@@ -42,7 +42,7 @@ def run_full_compilation(zara_code):
     tac_lines = [line for line in tac_output.split('\n') if line.strip()]
     optimizer = ZaraOptimizer(tac_lines)
     optimized_tac = optimizer.optimize_all()
-    print("".join(optimized_tac))
+    print("\n".join([line.strip() for line in optimized_tac]))
 
     # 6. Final Code Generation (Assembly)
     print("\n[STEP 6] Generating Assembly (Back-End)")

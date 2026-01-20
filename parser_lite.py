@@ -105,11 +105,21 @@ class ZaraParser:
         print(f"Parsed Assignment to {name}")
 
     def parse_expression(self):
+        """Refined: Consumes full expressions like '10 + 5' or 'x - 1'"""
+        # 1. Consume the first part (ID or Number)
         kind, value = self.current_token()
-        if kind in ['IDENTIFIER', 'INTEGER', 'FLOAT', 'STRING']:
-            self.pos += 1
-            return value
-        raise SyntaxError(f"Invalid expression at '{value}'")
+        if kind not in ['IDENTIFIER', 'INTEGER', 'FLOAT', 'STRING']:
+            raise SyntaxError(f"Invalid expression at '{value}'")
+        self.pos += 1
+        
+        # 2. Check if there is an operator following it (the 'lookahead')
+        kind, value = self.current_token()
+        if kind == 'OPERATOR' and value in ['+', '-', '*', '/']:
+            self.pos += 1 # Consume '+' or '-'
+            # 3. Recursively parse the right side
+            self.parse_expression() 
+        
+        return value
 
     def parse_program(self):
         print("--- Starting Parse ---")
