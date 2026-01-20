@@ -16,24 +16,31 @@ The Zara Compiler is a fully functional, modular compiler designed to translate 
 🏗 Architecture
 
 The compiler is built in six distinct stages, ensuring a separation of concerns and easy maintainability:
+
 1. Lexical Analysis (lexer.py)
 
 Scans the source code and breaks it down into meaningful tokens (Keywords, Identifiers, Operators).
+
 2. Syntax Analysis (parser_lite.py)
 
 Validates the token stream against the Zara context-free grammar. It uses a recursive-descent approach and features robust error recovery.
+
 3. Semantic Analysis (semantic_analyzer.py)
 
 Checks for "logic" errors, such as type mismatches (e.g., adding a string to an integer) and scope rules (using undeclared variables).
+
 4. Intermediate Code Generation (zara_tac_engine.py)
 
 Translates high-level constructs like if-else and do-while loops into a flat, 3-address format (x=y op z).
+
 5. Code Optimization (zara_optimizer.py)
 
 Refines the TAC by performing Constant Folding (calculating math at compile-time) and Dead Code Elimination.
+
 6. Code Generation (zara_asm_gen.py)
 
 Maps the optimized TAC to specific Z-ASM instructions, allocating registers (R1, R2, etc.) and managing memory labels.
+
 🛠 Installation & Usage
 Prerequisites
 
