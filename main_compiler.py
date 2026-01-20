@@ -4,6 +4,21 @@ from semantic_analyzer import SemanticAnalyzer
 from zara_tac_engine import ZaraTAC
 from zara_optimizer import ZaraOptimizer
 from zara_asm_gen import ZaraASMGenerator
+import os
+import sys
+
+
+def read_zara_file(filepath):
+    """Reads the content of a .zara file."""
+    if not os.path.exists(filepath):
+        print(f"Error: File '{filepath}' not found.")
+        sys.exit(1)
+    
+    if not filepath.endswith('.zara'):
+        print(f"Warning: File does not have a .zara extension.")
+
+    with open(filepath, 'r') as file:
+        return file.read()
 
 def run_full_compilation(zara_code):
     print("="*40)

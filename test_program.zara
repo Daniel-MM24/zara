@@ -1,0 +1,10 @@
+integer x = 10 + 5;
+integer y = 20;
+
+if (x) {
+    x = x - 1;
+}
+
+do {
+    y = y - 1;
+} while (y);
